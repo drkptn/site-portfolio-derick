@@ -13,6 +13,8 @@ export interface HeroSceneProps {
   intro: boolean
   compact: boolean
   reduced: boolean
+  /** Light page theme: darker particles so they stay visible. */
+  light?: boolean
 }
 
 const { damp, lerp } = THREE.MathUtils
@@ -32,7 +34,7 @@ function usePointer() {
   return pointer
 }
 
-export default function HeroScene({ progress, active, intro, compact, reduced }: HeroSceneProps) {
+export default function HeroScene({ progress, active, intro, compact, reduced, light = false }: HeroSceneProps) {
   // The loop stays off until the environment exists and shaders are compiled,
   // so compilation never stalls the preloader curtain or the hero intro.
   const [ready, setReady] = useState(false)
@@ -48,12 +50,12 @@ export default function HeroScene({ progress, active, intro, compact, reduced }:
         gl.toneMappingExposure = 1.1
       }}
     >
-      <Scene progress={progress} intro={intro} compact={compact} reduced={reduced} onReady={handleReady} />
+      <Scene progress={progress} intro={intro} compact={compact} reduced={reduced} light={light} onReady={handleReady} />
     </Canvas>
   )
 }
 
-function Scene({ progress, intro, compact, reduced, onReady }: Omit<HeroSceneProps, 'active'> & { onReady: () => void }) {
+function Scene({ progress, intro, compact, reduced, light = false, onReady }: Omit<HeroSceneProps, 'active'> & { onReady: () => void }) {
   const root = useRef<THREE.Group>(null)
   const tilt = useRef<THREE.Group>(null)
   const pointer = usePointer()
@@ -106,7 +108,7 @@ function Scene({ progress, intro, compact, reduced, onReady }: Omit<HeroScenePro
           <Stars reduced={reduced} />
         </group>
       </group>
-      <Particles count={compact ? 260 : 650} reduced={reduced} pointer={pointer} />
+      <Particles count={compact ? 260 : 650} reduced={reduced} pointer={pointer} light={light} />
 
       <StudioEnvironment onReady={onReady} />
     </>
@@ -374,9 +376,11 @@ function Particles({
   count,
   reduced,
   pointer,
+  light,
 }: {
   count: number
   reduced: boolean
+  light: boolean
   pointer: RefObject<{ x: number; y: number }>
 }) {
   const ref = useRef<THREE.Points>(null)
@@ -407,7 +411,7 @@ function Particles({
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.022} color="#c4c4c4" transparent opacity={0.55} sizeAttenuation depthWrite={false} />
+      <pointsMaterial size={0.022} color={light ? '#3a3a3a' : '#c4c4c4'} transparent opacity={light ? 0.45 : 0.55} sizeAttenuation depthWrite={false} />
     </points>
   )
 }

@@ -6,6 +6,7 @@ import { Preloader } from '@/components/preloader/Preloader'
 import { LanguageProvider, useI18n } from '@/i18n/LanguageProvider'
 import { AppStateProvider } from '@/providers/AppStateProvider'
 import { SmoothScrollProvider } from '@/providers/SmoothScrollProvider'
+import { ThemeProvider } from '@/providers/ThemeProvider'
 import { Footer } from '@/components/layout/Footer'
 import { PageProgress } from '@/components/layout/PageProgress'
 import { About } from '@/sections/About'
@@ -20,6 +21,7 @@ import { Skills } from '@/sections/Skills'
 export function App() {
   return (
     <MotionConfig reducedMotion="user">
+      <ThemeProvider>
       <LanguageProvider>
         <AppStateProvider>
           <SmoothScrollProvider>
@@ -27,6 +29,7 @@ export function App() {
           </SmoothScrollProvider>
         </AppStateProvider>
       </LanguageProvider>
+      </ThemeProvider>
     </MotionConfig>
   )
 }

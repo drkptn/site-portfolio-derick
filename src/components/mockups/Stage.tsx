@@ -46,7 +46,7 @@ export function Stage({ children, width = 960, height = 640, className, label }:
       aria-label={label}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      className={cn('relative w-full select-none', className)}
+      className={cn('theme-dark-scope relative w-full select-none', className)}
       style={{ aspectRatio: `${width} / ${height}` }}
     >
       <div

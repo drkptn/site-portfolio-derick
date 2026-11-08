@@ -12,6 +12,7 @@ import { cn } from '@/lib/cn'
 import { useAppState } from '@/providers/AppStateProvider'
 import { useSmoothScroll } from '@/providers/SmoothScrollProvider'
 import { LanguageSwitch } from './LanguageSwitch'
+import { ThemeToggle } from './ThemeToggle'
 
 const ALL_IDS = sections.map((s) => s.id)
 
@@ -123,6 +124,7 @@ export function Navbar() {
         </ul>
 
         <div className="relative z-[2] flex items-center gap-2.5">
+          <ThemeToggle />
           <LanguageSwitch id="nav-lang" className="hidden xs:flex" />
           <div className="hidden md:block">
             <Button

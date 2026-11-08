@@ -23,6 +23,8 @@ const en = {
     language: 'Language',
     primary: 'Primary',
     backToTop: 'Back to top',
+    themeLight: 'Switch to light theme',
+    themeDark: 'Switch to dark theme',
   },
   preloader: {
     loading: 'Loading experience',
@@ -251,6 +253,8 @@ const pt: Content = {
     language: 'Idioma',
     primary: 'Principal',
     backToTop: 'Voltar ao topo',
+    themeLight: 'Mudar para tema claro',
+    themeDark: 'Mudar para tema escuro',
   },
   preloader: {
     loading: 'Carregando experiência',

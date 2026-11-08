@@ -67,14 +67,11 @@
   }
 
   html {
-    background: var(--color-ink-50);
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
   }
 
   body {
-    background: var(--color-ink-50);
-    color: var(--color-ink-700);
     font-family: var(--font-sans);
     font-feature-settings: 'ss01', 'cv11';
     -webkit-font-smoothing: antialiased;
@@ -112,6 +109,97 @@
   html.has-custom-cursor textarea {
     cursor: text !important;
   }
+}
+
+/* ------------------------------------------------------------------
+   Themes — dark is the default; light is opt-in via the nav toggle.
+   Every colour utility reads these variables, so the whole UI follows.
+   ------------------------------------------------------------------ */
+:root[data-site-theme='light'] {
+  color-scheme: light;
+  --color-ink-0: #ffffff;
+  --color-ink-50: #f4f4f3;
+  --color-ink-75: #fafafa;
+  --color-ink-100: #ebebea;
+  --color-ink-200: #dededd;
+  --color-ink-300: #c9c9c8;
+  --color-ink-400: #a1a1a0;
+  --color-ink-500: #696969;
+  --color-ink-600: #4f4f4f;
+  --color-ink-700: #323232;
+  --color-ink-800: #222222;
+  --color-ink-900: #141414;
+  --color-ink-950: #0a0a0a;
+  /* hairlines and overlays written as white/x become black/x */
+  --color-white: #000000;
+  --color-frost: #4d6a8c;
+}
+
+/* Product "screens" (mockups) always stay dark, whatever the page theme */
+.theme-dark-scope {
+  color-scheme: dark;
+  --color-ink-0: #000000;
+  --color-ink-50: #0a0a0a;
+  --color-ink-75: #0f0f0f;
+  --color-ink-100: #171717;
+  --color-ink-200: #262626;
+  --color-ink-300: #373737;
+  --color-ink-400: #525252;
+  --color-ink-500: #8a8a8a;
+  --color-ink-600: #a3a3a3;
+  --color-ink-700: #d4d4d4;
+  --color-ink-800: #e5e5e5;
+  --color-ink-900: #f5f5f5;
+  --color-ink-950: #fafafa;
+  --color-white: #ffffff;
+}
+
+/* Unlayered + !important on purpose: hosts/iframes that inject their own light
+   page styles must not override the site's canvas colour. */
+html,
+body {
+  background-color: var(--color-ink-50) !important;
+  color: var(--color-ink-700);
+  transition: background-color 500ms ease, color 500ms ease;
+}
+
+:root[data-site-theme='light'] .text-metal {
+  background-image: linear-gradient(180deg, #0a0a0a 0%, #2b2b2b 50%, #6b6b6b 100%);
+}
+:root[data-site-theme='light'] .text-dim {
+  background-image: linear-gradient(90deg, #8f8f8f 0%, #6a6a6a 100%);
+}
+:root[data-site-theme='light'] .text-outline {
+  -webkit-text-stroke-color: rgb(0 0 0 / 0.2);
+}
+:root[data-site-theme='light'] .hairline {
+  background: linear-gradient(90deg, transparent, rgb(0 0 0 / 0.12) 20%, rgb(0 0 0 / 0.12) 80%, transparent);
+}
+:root[data-site-theme='light'] .surface {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.9), rgb(255 255 255 / 0.5)), var(--color-ink-75);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.9),
+    0 30px 70px -40px rgb(0 0 0 / 0.22);
+}
+:root[data-site-theme='light'] .spotlight::before {
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(0 0 0 / 0.045), transparent 45%);
+}
+:root[data-site-theme='light'] .spotlight::after {
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgb(0 0 0 / 0.35), transparent 60%);
+}
+:root[data-site-theme='light'] .diagonal-hatch {
+  background-image: repeating-linear-gradient(135deg, rgb(0 0 0 / 0.06) 0 1px, transparent 1px 9px);
+}
+:root[data-site-theme='light'] .dot-grid {
+  background-image: radial-gradient(rgb(0 0 0 / 0.14) 1px, transparent 1px);
+}
+:root[data-site-theme='light'] .grain {
+  filter: invert(1);
+  opacity: 0.035;
+}
+/* Mockups keep their dark utilities even inside the light theme */
+:root[data-site-theme='light'] .theme-dark-scope .diagonal-hatch {
+  background-image: repeating-linear-gradient(135deg, rgb(255 255 255 / 0.06) 0 1px, transparent 1px 9px);
 }
 
 /* Lenis smooth scroll */

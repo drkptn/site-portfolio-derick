@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="bg-[#0a0a0a]">
+<html lang="en" data-site-theme="dark" style="background:#0a0a0a">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -48,6 +48,15 @@
     <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
 
     <!--JSON_LD-->
+    <script>
+      // Apply the saved theme before first paint (dark is the default)
+      try {
+        if (localStorage.getItem('dp-theme') === 'light') {
+          document.documentElement.dataset.siteTheme = 'light'
+          document.documentElement.style.background = '#f4f4f3'
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <noscript>

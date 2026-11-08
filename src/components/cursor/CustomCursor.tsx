@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useMotionValue, useSpring } from 'motion/react
 import { useEffect, useState } from 'react'
 import { useFinePointer } from '@/hooks/useMediaQuery'
 import { useI18n } from '@/i18n/LanguageProvider'
+import { useTheme } from '@/providers/ThemeProvider'
 import type { Content } from '@/i18n/content'
 
 type Variant = 'default' | 'link' | 'label' | 'text' | 'hidden'
@@ -30,6 +31,7 @@ export function CustomCursor() {
 
 function CursorInner() {
   const { t } = useI18n()
+  const ink = useTheme().theme === 'light' ? '10,10,10' : '245,245,245'
   const x = useMotionValue(-100)
   const y = useMotionValue(-100)
   const rx = useSpring(x, { stiffness: 420, damping: 38, mass: 0.55 })
@@ -116,13 +118,13 @@ function CursorInner() {
           height: size.h,
           borderRadius: variant === 'text' ? 2 : 999,
           backgroundColor: isLabel
-            ? 'rgba(245,245,245,1)'
+            ? `rgba(${ink},1)`
             : variant === 'link'
-              ? 'rgba(245,245,245,0.06)'
+              ? `rgba(${ink},0.06)`
               : variant === 'text'
-                ? 'rgba(245,245,245,0.9)'
-                : 'rgba(245,245,245,0)',
-          borderColor: isLabel || variant === 'text' ? 'rgba(245,245,245,0)' : variant === 'link' ? 'rgba(245,245,245,0.7)' : 'rgba(245,245,245,0.32)',
+                ? `rgba(${ink},0.9)`
+                : `rgba(${ink},0)`,
+          borderColor: isLabel || variant === 'text' ? `rgba(${ink},0)` : variant === 'link' ? `rgba(${ink},0.7)` : `rgba(${ink},0.32)`,
           scale: pressed ? 0.86 : 1,
           opacity: variant === 'hidden' ? 0 : 1,
         }}
@@ -146,7 +148,7 @@ function CursorInner() {
       </motion.div>
       {/* Dot */}
       <motion.div
-        className="absolute left-0 top-0 size-1.5 rounded-full bg-white mix-blend-difference"
+        className="absolute left-0 top-0 size-1.5 rounded-full bg-[#fff] mix-blend-difference"
         style={{ x, y, translateX: '-50%', translateY: '-50%' }}
         animate={{ opacity: variant === 'default' ? 1 : 0, scale: variant === 'default' ? 1 : 0 }}
         transition={{ duration: 0.2 }}

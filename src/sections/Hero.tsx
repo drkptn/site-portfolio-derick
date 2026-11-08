@@ -13,6 +13,7 @@ import { useI18n } from '@/i18n/LanguageProvider'
 import { hasWebGL } from '@/lib/webgl'
 import { useAppState } from '@/providers/AppStateProvider'
 import { useSmoothScroll } from '@/providers/SmoothScrollProvider'
+import { useTheme } from '@/providers/ThemeProvider'
 
 const HeroScene = lazy(loadHeroScene)
 
@@ -25,6 +26,7 @@ export function Hero() {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref)
   const webgl = hasWebGL()
+  const light = useTheme().theme === 'light'
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   // Scroll-out choreography inspired by the motion reference: the name disperses
@@ -76,7 +78,7 @@ export function Hero() {
       >
         {webgl ? (
           <Suspense fallback={null}>
-            <HeroScene progress={scrollYProgress} active={inView} intro={introDone} compact={!isDesktop} reduced={reduce} />
+            <HeroScene progress={scrollYProgress} active={inView} intro={introDone} compact={!isDesktop} reduced={reduce} light={light} />
           </Suspense>
         ) : (
           <SceneFallback />
