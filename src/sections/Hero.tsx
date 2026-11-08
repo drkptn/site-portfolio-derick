@@ -18,7 +18,7 @@ import { useTheme } from '@/providers/ThemeProvider'
 const HeroScene = lazy(loadHeroScene)
 
 export function Hero() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   const { introDone } = useAppState()
   const { scrollTo } = useSmoothScroll()
   const reduce = useReducedMotion() ?? false
@@ -170,7 +170,7 @@ export function Hero() {
               <Button href="#contact" onClick={(e) => go(e, 'contact')} variant="secondary" icon={ArrowUpRight}>
                 {t.hero.contact}
               </Button>
-              <Button href={profile.cv} download="Derick-Putini-CV.pdf" variant="ghost" icon={Download} cursor="download">
+              <Button href={profile.cv[lang]} download={profile.cv[lang].split('/').pop()} variant="ghost" icon={Download} cursor="download">
                 {t.hero.cv}
               </Button>
             </div>

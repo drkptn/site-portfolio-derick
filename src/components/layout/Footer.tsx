@@ -12,7 +12,7 @@ import { useI18n } from '@/i18n/LanguageProvider'
 import { useSmoothScroll } from '@/providers/SmoothScrollProvider'
 
 export function Footer() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   const { scrollTo } = useSmoothScroll()
   const reduce = useReducedMotion()
   const wordRef = useRef<HTMLDivElement>(null)
@@ -29,7 +29,7 @@ export function Footer() {
     { label: 'E-mail', href: `mailto:${profile.email}`, icon: null },
     { label: 'LinkedIn', href: profile.links.linkedin, icon: LinkedInIcon },
     { label: 'GitHub', href: profile.links.github, icon: GitHubIcon },
-    { label: t.footer.cv, href: profile.cv, icon: null, download: true },
+    { label: t.footer.cv, href: profile.cv[lang], icon: null, download: true },
   ]
 
   return (
@@ -71,7 +71,7 @@ export function Footer() {
                 {href ? (
                   <a
                     href={href}
-                    {...(download ? { download: 'Derick-Putini-CV.pdf' } : href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    {...(download ? { download: href.split('/').pop() } : href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                     className="group inline-flex items-center gap-2 text-sm text-ink-600 transition-colors hover:text-ink-950"
                   >
                     {Icon && <Icon size={14} />}
