@@ -68,7 +68,7 @@ const content = {
         tags: ['HTML', 'CSS', 'JavaScript', 'Figma'],
       },
     ],
-    education: { title: 'Bacharelado em Ciência da Computação', school: 'UNINTER · cursando o 3º semestre', year: '2028', yearNote: 'previsão' },
+    education: { title: 'Bacharelado em Ciência da Computação', school: 'UNINTER · cursando o 3º semestre', year: 'Jul 2029', yearNote: 'previsão' },
     courses: [
       ['Power BI', 'Impacta · 40 horas', '2026'],
       ['UI/UX Design', 'Origamid · 80 horas', '2024'],
@@ -133,7 +133,7 @@ const content = {
         tags: ['HTML', 'CSS', 'JavaScript', 'Figma'],
       },
     ],
-    education: { title: 'Bachelor of Computer Science', school: 'UNINTER · currently in the 3rd semester', year: '2028', yearNote: 'expected' },
+    education: { title: 'Bachelor of Computer Science', school: 'UNINTER · currently in the 3rd semester', year: 'Jul 2029', yearNote: 'expected' },
     courses: [
       ['Power BI', 'Impacta · 40 hours', '2026'],
       ['UI/UX Design', 'Origamid · 80 hours', '2024'],

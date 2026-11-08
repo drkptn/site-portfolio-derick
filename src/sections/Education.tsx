@@ -40,7 +40,7 @@ export function Education() {
     { key: 'now', year: e.now, title: e.nowTitle, meta: profile.education.institution, kind: 'now' },
     {
       key: 'grad',
-      year: String(profile.education.expectedYear),
+      year: `${profile.education.expectedMonth[lang]} ${profile.education.expectedYear}`,
       title: e.graduationTitle,
       meta: `${profile.education.institution} · ${e.expectedShort}`,
       kind: 'future',
@@ -119,7 +119,7 @@ export function Education() {
                 <dl className="relative mt-10 grid grid-cols-2 border-t border-white/[0.08] pt-6">
                   <div>
                     <dt className="eyebrow">{e.expected}</dt>
-                    <dd className="mt-2 text-2xl font-medium tracking-[-0.03em] text-ink-900">{profile.education.expectedYear}</dd>
+                    <dd className="mt-2 text-2xl font-medium tracking-[-0.03em] text-ink-900">{profile.education.expectedMonth[lang]} {profile.education.expectedYear}</dd>
                   </div>
                   <div className="border-l border-white/[0.08] pl-6">
                     <dt className="eyebrow">{lang === 'pt' ? 'Grau' : 'Degree'}</dt>

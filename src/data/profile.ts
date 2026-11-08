@@ -39,6 +39,7 @@ export interface Profile {
     institution: string
     semester: number
     expectedYear: number
+    expectedMonth: { pt: string; en: string }
   }
   certifications: Certification[]
 }
@@ -68,7 +69,8 @@ export const profile: Profile = {
   education: {
     institution: 'UNINTER',
     semester: 3,
-    expectedYear: 2028,
+    expectedYear: 2029,
+    expectedMonth: { pt: 'Jul', en: 'Jul' },
   },
   certifications: [
     { id: 'web', name: 'HTML, CSS & JavaScript', issuer: 'Origamid', hours: 46, year: 2024 },
