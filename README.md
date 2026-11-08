@@ -77,4 +77,15 @@ src/
 
 ## Deploy
 
+**Publicado em:** https://drkptn.github.io/site-portfolio-derick/ (GitHub Pages, branch `gh-pages`).
+
+Para atualizar o site publicado:
+
+```bash
+npm run build:pages          # gera dist/ para o subcaminho /site-portfolio-derick/
+# publique o conteúdo de dist/ (com um arquivo .nojekyll) na branch gh-pages
+```
+
+### Outros provedores
+
 É um site estático: publique a pasta `dist/` em Vercel, Netlify, Cloudflare Pages ou GitHub Pages. Lembre de definir `VITE_SITE_URL` (e opcionalmente `VITE_FORM_ENDPOINT`) nas variáveis de ambiente do provedor antes do build.
