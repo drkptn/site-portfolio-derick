@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "cv": "node cv-source/build.mjs",
-    "build:pages": "BASE_PATH=/site-portfolio-derick/ VITE_SITE_URL=https://drkptn.github.io/site-portfolio-derick npm run build"
+    "build:pages": "BASE_PATH=/site-portfolio-derick/ VITE_SITE_URL=https://drkptn.github.io/site-portfolio-derick VITE_FORM_ENDPOINT=https://formsubmit.co/ajax/derickputini03@gmail.com npm run build"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",

@@ -37,12 +37,17 @@ export async function sendContact(payload: ContactPayload, signal?: AbortSignal)
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({
       ...payload,
-      _subject: `[Portfolio] ${payload.subject}`,
+      _subject: `[Portfólio] ${payload.subject}`,
       _replyto: payload.email,
+      _template: 'table',
+      _captcha: 'false',
     }),
     signal,
   })
   if (!res.ok) throw new Error(`HTTP_${res.status}`)
+  // FormSubmit answers 200 with { success: "false" } when it rejects a message
+  const data = (await res.json().catch(() => ({}))) as { success?: string | boolean }
+  if (data.success === 'false' || data.success === false) throw new Error('REJECTED')
 }
 
 /** Fallback when no endpoint is configured: the visitor's own mail client. */
