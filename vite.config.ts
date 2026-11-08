@@ -102,6 +102,8 @@ function seo(siteUrlRaw: string): Plugin {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   return {
+    // BASE_PATH lets the same code run at a domain root or under /repo-name/ (GitHub Pages)
+    base: env.BASE_PATH || '/',
     plugins: [react(), tailwindcss(), seo(env.VITE_SITE_URL ?? '')],
     resolve: {
       alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },

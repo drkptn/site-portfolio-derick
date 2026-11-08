@@ -170,7 +170,7 @@ export function Hero() {
               <Button href="#contact" onClick={(e) => go(e, 'contact')} variant="secondary" icon={ArrowUpRight}>
                 {t.hero.contact}
               </Button>
-              <Button href={profile.cv[lang]} download={profile.cv[lang].split('/').pop()} variant="ghost" icon={Download} cursor="download">
+              <Button href={import.meta.env.BASE_URL + profile.cv[lang]} download={profile.cv[lang].split('/').pop()} variant="ghost" icon={Download} cursor="download">
                 {t.hero.cv}
               </Button>
             </div>

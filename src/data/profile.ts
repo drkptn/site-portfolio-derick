@@ -50,7 +50,8 @@ export const profile: Profile = {
   email: 'derickputini03@gmail.com',
   phone: '(11) 93345-0411',
   phoneHref: 'tel:+5511933450411',
-  cv: { pt: '/cv/Derick-Putini-CV.pdf', en: '/cv/Derick-Putini-CV-EN.pdf' },
+  // Relative to the site base (works at the domain root or under /repo-name/ on GitHub Pages)
+  cv: { pt: 'cv/Derick-Putini-CV.pdf', en: 'cv/Derick-Putini-CV-EN.pdf' },
   location: {
     city: 'Santo André',
     region: 'SP',

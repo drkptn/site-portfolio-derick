@@ -29,7 +29,7 @@ export function Footer() {
     { label: 'E-mail', href: `mailto:${profile.email}`, icon: null },
     { label: 'LinkedIn', href: profile.links.linkedin, icon: LinkedInIcon },
     { label: 'GitHub', href: profile.links.github, icon: GitHubIcon },
-    { label: t.footer.cv, href: profile.cv[lang], icon: null, download: true },
+    { label: t.footer.cv, href: import.meta.env.BASE_URL + profile.cv[lang], icon: null, download: true },
   ]
 
   return (

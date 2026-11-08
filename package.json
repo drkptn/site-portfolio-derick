@@ -9,7 +9,8 @@
     "build": "tsc --noEmit -p tsconfig.json && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "cv": "node cv-source/build.mjs"
+    "cv": "node cv-source/build.mjs",
+    "build:pages": "BASE_PATH=/site-portfolio-derick/ VITE_SITE_URL=https://drkptn.github.io/site-portfolio-derick npm run build"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",
