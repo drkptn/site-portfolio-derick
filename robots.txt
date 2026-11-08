@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drkptn.github.io/site-portfolio-derick/sitemap.xml
