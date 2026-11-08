@@ -46,8 +46,8 @@ export async function sendContact(payload: ContactPayload, signal?: AbortSignal)
   })
   if (!res.ok) throw new Error(`HTTP_${res.status}`)
   // FormSubmit answers 200 with { success: "false" } when it rejects a message
-  const data = (await res.json().catch(() => ({}))) as { success?: string | boolean }
-  if (data.success === 'false' || data.success === false) throw new Error('REJECTED')
+  const data = (await res.json().catch(() => ({}))) as { success?: string | boolean; message?: string }
+  if (data.success === 'false' || data.success === false) throw new Error(data.message || 'REJECTED')
 }
 
 /** Fallback when no endpoint is configured: the visitor's own mail client. */

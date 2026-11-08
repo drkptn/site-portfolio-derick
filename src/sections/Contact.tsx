@@ -186,6 +186,8 @@ function ContactForm() {
   const [touched, setTouched] = useState<Partial<Record<ContactField, boolean>>>({})
   const [status, setStatus] = useState<Status>('idle')
   const [honeypot, setHoneypot] = useState('')
+  const [reason, setReason] = useState('')
+  const [lastSent, setLastSent] = useState<ContactPayload | null>(null)
   const formRef = useRef<HTMLFormElement>(null)
 
   const onChange = (field: ContactField) => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -226,7 +228,9 @@ function ContactForm() {
       setStatus('success')
       setValues(empty)
       setTouched({})
-    } catch {
+    } catch (err) {
+      setReason(err instanceof Error && /activat/i.test(err.message) ? 'activation' : '')
+      setLastSent(values)
       setStatus('error')
     } finally {
       window.clearTimeout(timeout)
@@ -372,7 +376,14 @@ function ContactForm() {
                 ) : (
                   <Check size={17} strokeWidth={1.75} className="mt-0.5 shrink-0" aria-hidden="true" />
                 )}
-                {status === 'success' ? f.success : status === 'error' ? f.error : f.fallback}
+                <span>
+                  {status === 'success' ? f.success : status === 'error' ? (reason === 'activation' ? f.activation : f.error) : f.fallback}
+                  {status === 'error' && lastSent && (
+                    <a href={buildMailto(lastSent)} className="mt-2 block font-medium text-ink-950 underline underline-offset-4">
+                      {f.viaEmail} →
+                    </a>
+                  )}
+                </span>
               </p>
             </motion.div>
           )}

@@ -218,6 +218,8 @@ const en = {
       },
       success: 'Message sent. Thank you — I’ll get back to you soon.',
       error: 'Something went wrong while sending. Please try again or e-mail me directly.',
+      activation: 'The form is being activated — your message could not be delivered yet.',
+      viaEmail: 'Send it with your e-mail app',
       fallback:
         'The form service isn’t connected yet, so your e-mail app was opened with the message pre-filled.',
       privacy: 'Your data is only used to reply to your message.',
@@ -449,6 +451,8 @@ const pt: Content = {
       },
       success: 'Mensagem enviada. Obrigado — retorno em breve.',
       error: 'Algo deu errado no envio. Tente novamente ou me mande um e-mail diretamente.',
+      activation: 'O formulário está em ativação — sua mensagem ainda não pôde ser entregue.',
+      viaEmail: 'Enviar pelo app de e-mail',
       fallback:
         'O serviço de formulário ainda não está conectado, então seu app de e-mail foi aberto com a mensagem preenchida.',
       privacy: 'Seus dados são usados apenas para responder à sua mensagem.',
