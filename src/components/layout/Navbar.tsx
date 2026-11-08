@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'motion/react'
 import { useCallback, useRef, useState, type MouseEvent } from 'react'
 import { ease } from '@/animations/easing'
-import { Logo } from '@/components/icons'
+import { BlackHole } from '@/components/blackhole/BlackHole'
 import { Button } from '@/components/ui/Button'
 import { navParent, navSections, sections, type SectionId } from '@/data/sections'
 import { profile } from '@/data/profile'
@@ -84,7 +84,7 @@ export function Navbar() {
           className="group relative z-[2] flex items-center gap-3"
           aria-label={`${profile.name} — ${t.nav.home}`}
         >
-          <Logo size={30} className="transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:rotate-[-8deg]" />
+          <BlackHole size={34} className="transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-110" />
           <span className="hidden flex-col leading-none sm:flex">
             <span className="text-[0.8125rem] font-medium tracking-[-0.01em] text-ink-900">{profile.name}</span>
             <span className="mt-1 font-mono text-[0.625rem] uppercase tracking-[0.16em] text-ink-500">

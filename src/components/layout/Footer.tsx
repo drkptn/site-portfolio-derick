@@ -2,7 +2,8 @@ import { motion, useInView, useReducedMotion } from 'motion/react'
 import { ArrowUp, ArrowUpRight } from 'lucide-react'
 import { useRef, type MouseEvent } from 'react'
 import { ease } from '@/animations/easing'
-import { GitHubIcon, LinkedInIcon, Logo } from '@/components/icons'
+import { GitHubIcon, LinkedInIcon } from '@/components/icons'
+import { BlackHole } from '@/components/blackhole/BlackHole'
 import { CircleLoader } from '@/components/ui/CircleLoader'
 import { Magnetic } from '@/components/ui/Magnetic'
 import { navSections } from '@/data/sections'
@@ -37,7 +38,7 @@ export function Footer() {
       <div className="container-x grid gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <div className="flex items-center gap-3">
-            <Logo size={34} />
+            <BlackHole size={40} />
             <span className="text-sm font-medium text-ink-900">{profile.name}</span>
           </div>
           <p className="mt-6 max-w-[26ch] text-[clamp(1.4rem,2.2vw,1.9rem)] font-medium leading-tight tracking-[-0.035em] text-ink-900">

@@ -2,7 +2,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { ChartNoAxesColumn, CodeXml, Cpu, PenTool, Sparkles, Terminal, ArrowUpRight } from 'lucide-react'
 import { useRef } from 'react'
 import { ease } from '@/animations/easing'
-import { Logo } from '@/components/icons'
+import { BlackHole } from '@/components/blackhole/BlackHole'
 import { CircleLoader } from '@/components/ui/CircleLoader'
 import { Reveal } from '@/components/ui/Reveal'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -133,7 +133,7 @@ function ProfileCard() {
       <div className="relative z-[2] overflow-hidden rounded-[10px]">
         <div className="diagonal-hatch flex items-center justify-between border-b border-white/[0.07] px-5 py-4">
           <div className="flex items-center gap-3">
-            <Logo size={26} />
+            <BlackHole size={28} />
             <span className="eyebrow text-ink-600">{c.title}</span>
           </div>
           <span className="eyebrow text-ink-500">No. DP-{new Date().getFullYear()}</span>

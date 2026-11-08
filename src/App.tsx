@@ -1,5 +1,6 @@
 import { MotionConfig } from 'motion/react'
 import { CustomCursor } from '@/components/cursor/CustomCursor'
+import { AnimatedFavicon } from '@/components/blackhole/AnimatedFavicon'
 import { Navbar } from '@/components/layout/Navbar'
 import { ScrollProgress } from '@/components/layout/ScrollProgress'
 import { Preloader } from '@/components/preloader/Preloader'
@@ -47,6 +48,7 @@ function Shell() {
       </a>
       <Preloader />
       <CustomCursor />
+      <AnimatedFavicon />
       <ScrollProgress />
       <div aria-hidden="true" className="grain pointer-events-none fixed inset-0 z-[95] opacity-[0.045]" />
       <Navbar />
