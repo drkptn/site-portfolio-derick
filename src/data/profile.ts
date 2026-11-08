@@ -1,0 +1,78 @@
+/**
+ * Single source of truth for personal / factual data.
+ * Everything here comes from the CV (public/cv/Derick-Putini-CV.pdf).
+ *
+ * To publish your profiles, just fill the empty strings in `links`:
+ * the buttons across the site become active automatically.
+ */
+
+export interface Certification {
+  id: string
+  name: string
+  issuer: string
+  hours: number
+  year: number
+}
+
+export interface Profile {
+  name: string
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  phoneHref: string
+  cv: string
+  location: {
+    city: string
+    region: string
+    country: { en: string; pt: string }
+    /** Approximate coordinates of Santo André, SP — used only as a typographic detail. */
+    coords: string
+    timeZone: string
+  }
+  links: {
+    linkedin: string
+    github: string
+  }
+  education: {
+    institution: string
+    semester: number
+    expectedYear: number
+  }
+  certifications: Certification[]
+}
+
+export const profile: Profile = {
+  name: 'Derick Putini',
+  firstName: 'Derick',
+  lastName: 'Putini',
+  email: 'derickputini03@gmail.com',
+  phone: '(11) 93345-0411',
+  phoneHref: 'tel:+5511933450411',
+  cv: '/cv/Derick-Putini-CV.pdf',
+  location: {
+    city: 'Santo André',
+    region: 'SP',
+    country: { en: 'Brazil', pt: 'Brasil' },
+    coords: '23.66° S · 46.54° W',
+    timeZone: 'America/Sao_Paulo',
+  },
+  links: {
+    // TODO: paste your profile URLs here, e.g. 'https://www.linkedin.com/in/your-handle'
+    linkedin: '',
+    // TODO: e.g. 'https://github.com/your-handle'
+    github: '',
+  },
+  education: {
+    institution: 'UNINTER',
+    semester: 3,
+    expectedYear: 2028,
+  },
+  certifications: [
+    { id: 'web', name: 'HTML, CSS & JavaScript', issuer: 'Origamid', hours: 46, year: 2024 },
+    { id: 'uiux', name: 'UI/UX Design', issuer: 'Origamid', hours: 80, year: 2024 },
+    { id: 'powerbi', name: 'Power BI', issuer: 'Impacta', hours: 40, year: 2026 },
+  ],
+}
+
+export const totalCertifiedHours = profile.certifications.reduce((sum, c) => sum + c.hours, 0)
