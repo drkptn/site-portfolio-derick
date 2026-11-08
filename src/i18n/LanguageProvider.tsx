@@ -20,7 +20,8 @@ function detectInitialLang(): Lang {
   } catch {
     /* storage unavailable */
   }
-  return navigator.language?.toLowerCase().startsWith('pt') ? 'pt' : 'en'
+  // Portuguese is the site's primary language; English is opt-in via the switch
+  return 'pt'
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

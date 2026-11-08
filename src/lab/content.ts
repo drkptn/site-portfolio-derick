@@ -6,12 +6,8 @@ export const labCopy = {
   titleDim: { en: 'Interactive', pt: 'Laboratório' },
   titleBright: { en: 'lab.', pt: 'interativo.' },
   intro: {
-    en: 'Working projects you can run right here — real Python and SQL in your browser, a live dashboard, a design-token playground and algorithm visualizations. Nothing is a screenshot.',
-    pt: 'Projetos funcionais que você roda aqui mesmo — Python e SQL de verdade no navegador, um dashboard ao vivo, um playground de design tokens e visualizações de algoritmos. Nada aqui é captura de tela.',
-  },
-  note: {
-    en: 'Built with AI-assisted development and reviewed by me. Everything runs locally in your browser.',
-    pt: 'Desenvolvido com apoio de IA e revisado por mim. Tudo roda localmente no seu navegador.',
+    en: 'Working projects you can use right here — interactive Python programs and SQL queries, a live dashboard, a design-token playground and algorithm visualizations. Nothing is a screenshot.',
+    pt: 'Projetos funcionais para usar aqui mesmo — programas Python e consultas SQL interativas, um dashboard ao vivo, um playground de design tokens e visualizações de algoritmos. Nada aqui é captura de tela.',
   },
   live: { en: 'Live', pt: 'Ao vivo' },
   loadingApp: { en: 'Loading app…', pt: 'Carregando app…' },
@@ -21,9 +17,9 @@ export const labCopy = {
 export const labApps: Record<LabId, { title: Localized<string>; desc: Localized<string>; tags: string[]; file: string }> = {
   code: {
     title: { en: 'Code Lab', pt: 'Code Lab' },
-    desc: { en: 'Python & SQL running in the browser', pt: 'Python e SQL rodando no navegador' },
-    tags: ['Python', 'SQL', 'WebAssembly'],
-    file: 'network_db.py',
+    desc: { en: 'Interactive Python programs & SQL', pt: 'Programas Python e SQL interativos' },
+    tags: ['Python', 'SQL', 'Networking'],
+    file: 'inventory.py',
   },
   data: {
     title: { en: 'Data Lab', pt: 'Data Lab' },

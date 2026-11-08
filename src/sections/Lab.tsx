@@ -69,7 +69,6 @@ export function Lab() {
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.15}>
             <p className="text-[0.9375rem] leading-relaxed text-ink-600 text-pretty">{l(labCopy.intro)}</p>
-            <p className="eyebrow mt-4 normal-case tracking-normal text-ink-500">{l(labCopy.note)}</p>
           </Reveal>
         </div>
 
