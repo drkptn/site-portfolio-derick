@@ -1,4 +1,5 @@
 import type { Localized } from '@/i18n/types'
+import type { LabId } from '@/lab/bus'
 
 export type ProjectVisual = 'code' | 'dashboard' | 'web'
 
@@ -17,6 +18,8 @@ export interface Project {
    * Empty links render as "Coming soon" instead of fake URLs.
    */
   links: { demo: string; github: string; caseStudy: string }
+  /** Interactive app in the Lab section that demonstrates this project's skills. */
+  lab: LabId
 }
 
 export const projects: Project[] = [
@@ -42,6 +45,7 @@ export const projects: Project[] = [
     },
     tech: ['Python', 'C#', 'SQL', 'Database'],
     links: { demo: '', github: '', caseStudy: '' },
+    lab: 'code',
   },
   {
     index: '02',
@@ -65,6 +69,7 @@ export const projects: Project[] = [
     },
     tech: ['Power BI', 'Excel', 'Data Analytics', 'UX'],
     links: { demo: '', github: '', caseStudy: '' },
+    lab: 'data',
   },
   {
     index: '03',
@@ -88,5 +93,6 @@ export const projects: Project[] = [
     },
     tech: ['HTML', 'CSS', 'JavaScript', 'Figma', 'UI/UX'],
     links: { demo: '', github: '', caseStudy: '' },
+    lab: 'design',
   },
 ]

@@ -23,7 +23,7 @@ export function Differentials() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px hairline" />
       <div aria-hidden="true" className="pointer-events-none absolute -right-[20%] top-1/4 size-[60vw] rounded-full bg-[radial-gradient(closest-side,rgb(200_212_228/0.06),transparent)]" />
       <div className="container-x">
-        <SectionHeading id="differentials" index="06" label={d.label} dim={d.titleDim} bright={d.titleBright} />
+        <SectionHeading id="differentials" index="07" label={d.label} dim={d.titleDim} bright={d.titleBright} />
 
         <div className="mt-16 grid gap-16 lg:mt-24 lg:grid-cols-12 lg:gap-10">
           <ol className="border-t border-white/[0.08] lg:col-span-7">

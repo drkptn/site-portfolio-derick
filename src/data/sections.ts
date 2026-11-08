@@ -1,6 +1,6 @@
 import type { Content } from '@/i18n/content'
 
-export type SectionId = 'home' | 'about' | 'skills' | 'projects' | 'education' | 'differentials' | 'contact'
+export type SectionId = 'home' | 'about' | 'skills' | 'projects' | 'lab' | 'education' | 'differentials' | 'contact'
 
 /** Page order. `nav` = shown in the main menu (differentials lives under Education). */
 export const sections: { id: SectionId; index: string; navKey?: keyof Content['nav'] }[] = [
@@ -8,9 +8,10 @@ export const sections: { id: SectionId; index: string; navKey?: keyof Content['n
   { id: 'about', index: '02', navKey: 'about' },
   { id: 'skills', index: '03', navKey: 'skills' },
   { id: 'projects', index: '04', navKey: 'projects' },
-  { id: 'education', index: '05', navKey: 'education' },
-  { id: 'differentials', index: '06' },
-  { id: 'contact', index: '07', navKey: 'contact' },
+  { id: 'lab', index: '05', navKey: 'lab' },
+  { id: 'education', index: '06', navKey: 'education' },
+  { id: 'differentials', index: '07' },
+  { id: 'contact', index: '08', navKey: 'contact' },
 ]
 
 export const navSections = sections.filter((s) => s.navKey)
@@ -21,6 +22,7 @@ export const navParent: Record<SectionId, SectionId> = {
   about: 'about',
   skills: 'skills',
   projects: 'projects',
+  lab: 'lab',
   education: 'education',
   differentials: 'education',
   contact: 'contact',

@@ -208,7 +208,7 @@ function HeroFooter({ show, onScroll }: { show: boolean; onScroll: (e: MouseEven
         </span>
       </p>
       <p className="eyebrow">
-        <span className="text-ink-900">01</span> / 07
+        <span className="text-ink-900">01</span> / 08
       </p>
     </motion.div>
   )

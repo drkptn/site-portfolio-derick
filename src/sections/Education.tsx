@@ -53,7 +53,7 @@ export function Education() {
       <div className="container-x">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <SectionHeading id="education" index="05" label={e.label} dim={e.titleDim} bright={e.titleBright} />
+            <SectionHeading id="education" index="06" label={e.label} dim={e.titleDim} bright={e.titleBright} />
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.15}>
             <div className="flex items-end gap-4">

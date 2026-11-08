@@ -1,5 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { ArrowRight, ArrowUpRight, X } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, FlaskConical, X } from 'lucide-react'
+import { openLab } from '@/lab/bus'
+import { labCopy } from '@/lab/content'
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { ease } from '@/animations/easing'
@@ -116,6 +118,18 @@ function ModalBody({ project, onClose, onNavigate }: { project: Project; onClose
             <motion.p {...item(1)} className="mt-6 max-w-[60ch] text-base leading-relaxed text-ink-600 lg:text-lg">
               {l(project.summary)}
             </motion.p>
+            <motion.div {...item(1)} className="mt-8">
+              <button
+                type="button"
+                onClick={() => {
+                  onClose()
+                  window.setTimeout(() => openLab(project.lab), 650)
+                }}
+                className="inline-flex h-12 items-center gap-3 rounded-[6px] bg-ink-900 px-5 text-[0.8125rem] font-medium text-ink-0 transition-colors hover:bg-ink-950"
+              >
+                <FlaskConical size={16} strokeWidth={1.75} aria-hidden="true" /> {l(labCopy.tryLive)}
+              </button>
+            </motion.div>
 
             <motion.div {...item(2)} className="mt-10">
               <ProjectVisual project={project} />

@@ -33,7 +33,7 @@ export function Contact() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px hairline" />
       <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-0 h-[70vh] w-[110vw] -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,rgb(200_212_228/0.07),transparent_60%)]" />
       <div className="container-x">
-        <SectionLabel index="07" label={c.label} />
+        <SectionLabel index="08" label={c.label} />
         <RevealText
           as="h2"
           id="contact-title"

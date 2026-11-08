@@ -15,6 +15,9 @@ import { useIsDesktop } from '@/hooks/useMediaQuery'
 import { useI18n } from '@/i18n/LanguageProvider'
 import { cn } from '@/lib/cn'
 import { useSmoothScroll } from '@/providers/SmoothScrollProvider'
+import { openLab } from '@/lab/bus'
+import { labCopy } from '@/lab/content'
+import { FlaskConical } from 'lucide-react'
 
 export function Projects() {
   const isDesktop = useIsDesktop()
@@ -140,7 +143,10 @@ function ProjectPanel({ project, reversed, onOpen }: { project: Project; reverse
             <Tag key={tech}>{tech}</Tag>
           ))}
         </div>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Button variant="primary" onClick={() => openLab(project.lab)} cursor="explore" icon={FlaskConical}>
+            {l(labCopy.tryLive)}
+          </Button>
           <Button variant="secondary" onClick={() => onOpen(project)} cursor="open" icon={ArrowUpRight}>
             {t.projects.view}
           </Button>
@@ -228,7 +234,10 @@ function StackedProjects({ onOpen }: { onOpen: (p: Project) => void }) {
                   <Tag key={tech}>{tech}</Tag>
                 ))}
               </div>
-              <div className="mt-7">
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Button variant="primary" onClick={() => openLab(p.lab)} icon={FlaskConical} magnetic={false}>
+                  {l(labCopy.tryLive)}
+                </Button>
                 <Button variant="secondary" onClick={() => onOpen(p)} icon={ArrowUpRight} magnetic={false}>
                   {t.projects.view}
                 </Button>

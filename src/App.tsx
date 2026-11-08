@@ -15,6 +15,7 @@ import { Differentials } from '@/sections/Differentials'
 import { DisciplineMarquee } from '@/sections/DisciplineMarquee'
 import { Education } from '@/sections/Education'
 import { Hero } from '@/sections/Hero'
+import { Lab } from '@/sections/Lab'
 import { Projects } from '@/sections/Projects'
 import { Skills } from '@/sections/Skills'
 
@@ -55,6 +56,7 @@ function Shell() {
         <About />
         <Skills />
         <Projects />
+        <Lab />
         <Education />
         <Differentials />
         <Contact />

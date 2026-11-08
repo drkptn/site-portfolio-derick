@@ -2,6 +2,8 @@ import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, URL } from 'node:url'
+import { readFileSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { profile } from './src/data/profile.ts'
 
 /**
@@ -99,10 +101,56 @@ function seo(siteUrlRaw: string): Plugin {
   }
 }
 
+/**
+ * Lab runtimes: Python (Pyodide) and SQLite (sql.js) are self-hosted from node_modules
+ * instead of a third-party CDN, so the interactive lab works on any host.
+ * Served by a dev middleware and emitted under /runtimes/ at build time.
+ */
+const RUNTIMES: Record<string, { dir: string; files: string[] }> = {
+  pyodide: {
+    dir: 'node_modules/pyodide',
+    files: ['pyodide.mjs', 'pyodide.asm.js', 'pyodide.asm.wasm', 'python_stdlib.zip', 'pyodide-lock.json'],
+  },
+  sql: { dir: 'node_modules/sql.js/dist', files: ['sql-wasm-browser.wasm'] },
+}
+
+const MIME: Record<string, string> = {
+  '.mjs': 'text/javascript',
+  '.js': 'text/javascript',
+  '.wasm': 'application/wasm',
+  '.zip': 'application/zip',
+  '.json': 'application/json',
+}
+
+function labRuntimes(): Plugin {
+  return {
+    name: 'lab-runtimes',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const match = req.url?.match(/\/runtimes\/(\w+)\/([\w.-]+)/)
+        const runtime = match && RUNTIMES[match[1]]
+        if (!runtime || !runtime.files.includes(match[2])) return next()
+        const file = join(process.cwd(), runtime.dir, match[2])
+        if (!existsSync(file)) return next()
+        res.setHeader('Content-Type', MIME[match[2].slice(match[2].lastIndexOf('.'))] ?? 'application/octet-stream')
+        res.end(readFileSync(file))
+      })
+    },
+    generateBundle() {
+      for (const [name, runtime] of Object.entries(RUNTIMES)) {
+        for (const f of runtime.files) {
+          this.emitFile({ type: 'asset', fileName: `runtimes/${name}/${f}`, source: readFileSync(join(process.cwd(), runtime.dir, f)) })
+        }
+      }
+    },
+  }
+}
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   return {
-    plugins: [react(), tailwindcss(), seo(env.VITE_SITE_URL ?? '')],
+    plugins: [react(), tailwindcss(), seo(env.VITE_SITE_URL ?? ''), labRuntimes()],
+    worker: { format: 'es' },
     resolve: {
       alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
     },

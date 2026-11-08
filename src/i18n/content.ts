@@ -14,6 +14,7 @@ const en = {
     about: 'About',
     skills: 'Skills',
     projects: 'Projects',
+    lab: 'Lab',
     education: 'Education',
     contact: 'Contact',
     menu: 'Menu',
@@ -114,7 +115,7 @@ const en = {
     titleDim: 'Selected',
     titleBright: 'work.',
     intro:
-      'Practice projects from my path in software, data and web. Visuals marked as “concept” are illustrative demonstrations — not screenshots of delivered products.',
+      'Practice projects from my path in software, data and web. Visuals marked as “concept” are illustrative demonstrations — not screenshots of delivered products. “Try it live” opens a working version in the Lab.',
     scrollHint: 'Scroll to explore',
     view: 'View project',
     concept: 'Concept visual',
@@ -244,6 +245,7 @@ const pt: Content = {
     about: 'Sobre',
     skills: 'Skills',
     projects: 'Projetos',
+    lab: 'Lab',
     education: 'Formação',
     contact: 'Contato',
     menu: 'Menu',
@@ -344,7 +346,7 @@ const pt: Content = {
     titleDim: 'Projetos',
     titleBright: 'selecionados.',
     intro:
-      'Projetos práticos da minha trajetória em software, dados e web. Visuais marcados como “conceito” são demonstrações ilustrativas — não capturas de produtos entregues.',
+      'Projetos práticos da minha trajetória em software, dados e web. Visuais marcados como “conceito” são demonstrações ilustrativas — não capturas de produtos entregues. “Testar ao vivo” abre uma versão funcional no Lab.',
     scrollHint: 'Role para explorar',
     view: 'Ver projeto',
     concept: 'Visual conceitual',
