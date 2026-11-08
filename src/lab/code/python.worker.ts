@@ -14,15 +14,18 @@ type PyodideAPI = {
 
 type InMessage = { type: 'init'; indexURL: string } | { type: 'run'; indexURL: string; code: string }
 
+/** Kept as a constant so hosts that cannot serve .zip can rename the file. */
+const STDLIB_FILE = 'python_stdlib.zip'
+
 let loading: Promise<PyodideAPI> | null = null
 
 function ensure(indexURL: string) {
   loading ??= (async () => {
     postMessage({ type: 'status', status: 'loading' })
     const mod = (await import(/* @vite-ignore */ `${indexURL}pyodide.mjs`)) as {
-      loadPyodide: (o: { indexURL: string }) => Promise<PyodideAPI>
+      loadPyodide: (o: { indexURL: string; stdLibURL?: string }) => Promise<PyodideAPI>
     }
-    const py = await mod.loadPyodide({ indexURL })
+    const py = await mod.loadPyodide({ indexURL, stdLibURL: `${indexURL}${STDLIB_FILE}` })
     py.setStdout({ batched: (text) => postMessage({ type: 'stdout', text }) })
     py.setStderr({ batched: (text) => postMessage({ type: 'stderr', text }) })
     postMessage({ type: 'status', status: 'ready', version: py.version })
