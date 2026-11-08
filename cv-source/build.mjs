@@ -33,7 +33,7 @@ const content = {
     lang: 'pt-BR',
     role: 'Estudante de Ciência da Computação · Front-End · Dados',
     status: 'Aberto a primeiras oportunidades em tecnologia',
-    labels: { profile: 'Perfil', projects: 'Projetos', education: 'Formação', courses: 'Cursos e certificações', skills: 'Habilidades', languages: 'Idiomas', differentials: 'Diferenciais' },
+    labels: { profile: 'Perfil', projects: 'Projetos', education: 'Formação', courses: 'Cursos e certificações (6)', skills: 'Habilidades', languages: 'Idiomas', differentials: 'Diferenciais' },
     summary:
       'Estudante de Ciência da Computação na UNINTER com foco em desenvolvimento de software, Front-End e análise de dados. Desenvolvo aplicações em Python e C#, trabalho com banco de dados e dados de redes e crio interfaces web responsivas. Complemento o perfil técnico com Power BI e UI/UX Design para entregar soluções funcionais e bem desenhadas, e uso IA e ferramentas de IA para ganhar produtividade e acelerar o aprendizado. Busco minha primeira oportunidade em tecnologia para evoluir com a equipe e contribuir com projetos reais.',
     projects: [
@@ -74,7 +74,7 @@ const content = {
       ['UI/UX Design', 'Origamid · 80 horas', '2024'],
       ['HTML, CSS e JavaScript', 'Origamid · 46 horas', '2024'],
     ],
-    hours: '166 horas de cursos certificados',
+    hours: '6 certificados no total · 166 horas nos cursos principais',
     skills: [
       ['Programação', ['Python', 'C#', 'JavaScript', 'Java', 'SQL', 'Lógica e algoritmos']],
       ['Front-End', ['HTML5', 'CSS3', 'React', 'TypeScript', 'Design responsivo']],
@@ -98,7 +98,7 @@ const content = {
     lang: 'en',
     role: 'Computer Science Student · Front-End · Data',
     status: 'Open to first opportunities in tech',
-    labels: { profile: 'Profile', projects: 'Projects', education: 'Education', courses: 'Courses & certifications', skills: 'Skills', languages: 'Languages', differentials: 'Differentials' },
+    labels: { profile: 'Profile', projects: 'Projects', education: 'Education', courses: 'Courses & certifications (6)', skills: 'Skills', languages: 'Languages', differentials: 'Differentials' },
     summary:
       'Computer Science student at UNINTER focused on software development, Front-End and data analysis. I build applications in Python and C#, work with databases and network data, and create responsive web interfaces. I complement my technical profile with Power BI and UI/UX Design to deliver functional, well-designed solutions, and I use AI and AI tools to boost productivity and speed up learning. I am looking for my first opportunity in tech to grow with a team and contribute to real projects.',
     projects: [
@@ -139,7 +139,7 @@ const content = {
       ['UI/UX Design', 'Origamid · 80 hours', '2024'],
       ['HTML, CSS & JavaScript', 'Origamid · 46 hours', '2024'],
     ],
-    hours: '166 hours of certified coursework',
+    hours: '6 certificates in total · 166 hours in the main courses',
     skills: [
       ['Programming', ['Python', 'C#', 'JavaScript', 'Java', 'SQL', 'Logic & algorithms']],
       ['Front-End', ['HTML5', 'CSS3', 'React', 'TypeScript', 'Responsive design']],

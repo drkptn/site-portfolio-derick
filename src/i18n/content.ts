@@ -174,7 +174,7 @@ const en = {
     facts: [
       { value: 'C1', label: 'English level' },
       { value: '166h', label: 'Certified coursework' },
-      { value: '03', label: 'Certificates' },
+      { value: '06', label: 'Certificates' },
       { value: '2029', label: 'Expected graduation (Jul)' },
     ],
   },
@@ -405,7 +405,7 @@ const pt: Content = {
     facts: [
       { value: 'C1', label: 'Nível de inglês' },
       { value: '166h', label: 'Cursos certificados' },
-      { value: '03', label: 'Certificados' },
+      { value: '06', label: 'Certificados' },
       { value: '2029', label: 'Previsão de formatura (jul.)' },
     ],
   },
