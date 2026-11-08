@@ -2,14 +2,13 @@ import { motion, useMotionValueEvent, useReducedMotion, useScroll, useSpring, us
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { useCallback, useLayoutEffect, useRef, useState, type MouseEvent } from 'react'
 import { ease } from '@/animations/easing'
-import { GitHubIcon, Spark } from '@/components/icons'
+import { Spark } from '@/components/icons'
 import { ProjectModal } from '@/components/projects/ProjectModal'
 import { ProjectVisual } from '@/components/projects/ProjectVisual'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
-import { profile } from '@/data/profile'
 import { projects, type Project } from '@/data/projects'
 import { useIsDesktop } from '@/hooks/useMediaQuery'
 import { useI18n } from '@/i18n/LanguageProvider'
@@ -184,11 +183,6 @@ function NextPanel() {
           <Button href="#contact" onClick={go} variant="primary">
             {t.projects.next.cta}
           </Button>
-          {profile.links.github && (
-            <a href={profile.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-ink-600 hover:text-ink-950">
-              <GitHubIcon size={16} /> GitHub
-            </a>
-          )}
         </div>
       </div>
     </div>

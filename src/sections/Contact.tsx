@@ -2,7 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { ArrowUpRight, Check, CircleAlert, Copy, Mail, MapPin, Phone, Send } from 'lucide-react'
 import { useId, useRef, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react'
 import { ease } from '@/animations/easing'
-import { GitHubIcon, LinkedInIcon } from '@/components/icons'
+import { LinkedInIcon } from '@/components/icons'
 import { Button } from '@/components/ui/Button'
 import { CircleLoader } from '@/components/ui/CircleLoader'
 import { Reveal } from '@/components/ui/Reveal'
@@ -90,7 +90,6 @@ function ContactList() {
         <span className="font-mono text-[0.6875rem] tabular-nums text-ink-500">{time}</span>
       </Row>
       <SocialRow icon={<LinkedInIcon size={16} />} label={c.linkedin} href={profile.links.linkedin} soon={c.soon} />
-      <SocialRow icon={<GitHubIcon size={16} />} label={c.github} href={profile.links.github} soon={c.soon} />
     </ul>
   )
 }

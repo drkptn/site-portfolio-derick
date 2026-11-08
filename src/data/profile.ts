@@ -34,7 +34,6 @@ export interface Profile {
   }
   links: {
     linkedin: string
-    github: string
   }
   education: {
     institution: string
@@ -54,7 +53,7 @@ export const profile: Profile = {
   phoneHref: 'tel:+5511933450411',
   // Relative to the site base (works at the domain root or under /repo-name/ on GitHub Pages)
   /** Bump when the PDFs are regenerated so browsers don't serve a cached copy. */
-  cvVersion: '2029-07',
+  cvVersion: '2029-07b',
   cv: { pt: 'cv/Derick-Putini-CV.pdf', en: 'cv/Derick-Putini-CV-EN.pdf' },
   location: {
     city: 'Santo André',
@@ -64,10 +63,7 @@ export const profile: Profile = {
     timeZone: 'America/Sao_Paulo',
   },
   links: {
-    // TODO: paste your profile URLs here, e.g. 'https://www.linkedin.com/in/your-handle'
-    linkedin: '',
-    // TODO: e.g. 'https://github.com/your-handle'
-    github: '',
+    linkedin: 'https://www.linkedin.com/in/derick-putini-3730b130b',
   },
   education: {
     institution: 'UNINTER',

@@ -25,6 +25,7 @@ const profile = {
   email: 'derickputini03@gmail.com',
   phone: '(11) 93345-0411',
   city: 'Santo André — SP',
+  linkedin: 'linkedin.com/in/derick-putini-3730b130b',
 }
 
 const content = {
@@ -231,6 +232,7 @@ footer{position:absolute;left:14mm;right:14mm;bottom:6mm;display:flex;justify-co
   <div class="contact">
     <span><small>E-mail</small>${esc(profile.email)}</span>
     <span><small>${c.lang === 'en' ? 'Phone' : 'Telefone'}</small>${esc(profile.phone)}</span>
+    <span><small>LinkedIn</small><a href="https://www.${profile.linkedin}" style="color:inherit;text-decoration:none">${esc(profile.linkedin)}</a></span>
     <span><small>${c.lang === 'en' ? 'Location' : 'Localização'}</small>${esc(profile.city)}${c.lang === 'en' ? ', Brazil' : ', Brasil'}</span>
   </div>
 </header>

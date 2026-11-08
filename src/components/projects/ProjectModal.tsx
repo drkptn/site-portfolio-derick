@@ -48,7 +48,6 @@ function ModalBody({ project, onClose, onNavigate }: { project: Project; onClose
   const m = t.projects.modal
   const links: { key: keyof Project['links']; label: string }[] = [
     { key: 'demo', label: m.demo },
-    { key: 'github', label: m.github },
     { key: 'caseStudy', label: m.caseStudy },
   ]
 

@@ -51,7 +51,7 @@ function seo(siteUrlRaw: string): Plugin {
       recognizedBy: { '@type': 'Organization', name: c.issuer },
     })),
     ...(siteUrl ? { url: `${siteUrl}/`, image: `${siteUrl}/og-image.png` } : {}),
-    sameAs: [profile.links.linkedin, profile.links.github].filter(Boolean),
+    sameAs: [profile.links.linkedin].filter(Boolean),
   }
 
   return {

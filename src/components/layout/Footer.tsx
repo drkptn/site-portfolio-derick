@@ -2,7 +2,7 @@ import { motion, useInView, useReducedMotion } from 'motion/react'
 import { ArrowUp, ArrowUpRight } from 'lucide-react'
 import { useRef, type MouseEvent } from 'react'
 import { ease } from '@/animations/easing'
-import { GitHubIcon, LinkedInIcon } from '@/components/icons'
+import { LinkedInIcon } from '@/components/icons'
 import { BlackHole } from '@/components/blackhole/BlackHole'
 import { CircleLoader } from '@/components/ui/CircleLoader'
 import { Magnetic } from '@/components/ui/Magnetic'
@@ -29,7 +29,6 @@ export function Footer() {
   const socials = [
     { label: 'E-mail', href: `mailto:${profile.email}`, icon: null },
     { label: 'LinkedIn', href: profile.links.linkedin, icon: LinkedInIcon },
-    { label: 'GitHub', href: profile.links.github, icon: GitHubIcon },
     { label: t.footer.cv, href: `${import.meta.env.BASE_URL}${profile.cv[lang]}?v=${profile.cvVersion}`, icon: null, download: true },
   ]
 
